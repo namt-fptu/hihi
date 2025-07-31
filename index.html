@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <title>Thông điệp yêu thương dành cho Mei 💖</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&family=Quicksand:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+ <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+  <!-- Floating hearts decoration -->
+  <div class="floating-hearts">
+    <div class="heart">💖</div>
+    <div class="heart">💕</div>
+    <div class="heart">💗</div>
+    <div class="heart">💝</div>
+    <div class="heart">💘</div>
+  </div>
+
+  <!-- Decorative elements around the screen -->
+  <div class="corner-decorations">
+    <div class="corner-deco top-left">🌸</div>
+    <div class="corner-deco top-right">🦋</div>
+    <div class="corner-deco bottom-left">🌹</div>
+    <div class="corner-deco bottom-right">🌺</div>
+  </div>
+
+  <!-- Floating decorative elements -->
+  <div class="floating-decorations">
+    <div class="float-item item-1">✨</div>
+    <div class="float-item item-2">💫</div>
+    <div class="float-item item-3">🌟</div>
+    <div class="float-item item-4">⭐</div>
+    <div class="float-item item-5">💎</div>
+    <div class="float-item item-6">🎀</div>
+  </div>
+
+  <div id="startStage">
+    <!-- Header với tên -->
+    <div class="welcome-header">
+      <h1 class="main-title">💝 Dành cho Mei nè 💝</h1>
+    </div>
+
+    <div class="stage-decoration">
+      <span class="deco-emoji">🌸</span>
+      <span class="deco-emoji">✨</span>
+      <span class="deco-emoji">🌸</span>
+    </div>
+
+    <!-- Gift container với decorations xung quanh -->
+    <div class="gift-wrapper">
+      <div class="gift-decorations">
+        <div class="gift-sparkle sparkle-1">✨</div>
+        <div class="gift-sparkle sparkle-2">⭐</div>
+        <div class="gift-sparkle sparkle-3">💫</div>
+        <div class="gift-sparkle sparkle-4">🌟</div>
+      </div>
+      
+      <img src="src/giftbox.png" alt="Hộp quà" class="gift-image" onclick="startApp()" />
+      
+      <div class="gift-glow-ring"></div>
+    </div>
+
+    <p class="main-message">💌 Nhấn vào hộp quà nhóooooo! 💌</p>
+    
+    <div class="cute-message">
+      <span class="twinkle">✨</span>
+      <span>Một lời nhắn đặc biệt dành cho Mei</span>
+      <span class="twinkle">✨</span>
+    </div>
+
+    <!-- Bottom decorations -->
+    <div class="bottom-decorations">
+      <div class="bottom-text">
+        <span class="heart-beat">💕</span>
+        <span>hihi</span>
+        <span class="heart-beat">💕</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="inputStage" style="display:none;"></div>
+  
+  <div id="loveStage" style="display:none;">
+    <div class="stage-decoration">
+      <span class="deco-emoji">💖</span>
+      <span class="deco-emoji">✨</span>
+      <span class="deco-emoji">💖</span>
+    </div>
+    <p id="lovePrompt">🌟 Chạm đủ 5 trái tim để nhận thông điệp an ủi từ Nam  nè 🌟</p>
+    <div id="loveIcons">
+      <span class="love-icon" onclick="tapLove(1)">❤️</span>
+      <span class="love-icon" onclick="tapLove(2)">❤️</span>
+      <span class="love-icon" onclick="tapLove(3)">❤️</span>
+      <span class="love-icon" onclick="tapLove(4)">❤️</span>
+      <span class="love-icon" onclick="tapLove(5)">❤️</span>
+    </div>
+    <div class="instruction-text">
+      <span class="twinkle">✨</span>
+      <span>Em chạm từng cái nhóoo owo</span>
+      <span class="twinkle">✨</span>
+    </div>
+  </div>
+  
+  <div id="cardStage" style="display:none;">
+    <!-- Photo frames around the card -->
+    <!-- Hướng dẫn: Thay thế các file ảnh sau bằng ảnh người yêu của bạn:
+         photo1.jpg, photo2.jpg, photo3.jpg, photo4.jpg, photo5.jpg, photo6.jpg -->
+    <div class="photo-frames">
+      <div class="photo-frame top-left">
+        <img src="src/photo1.jpg" alt="Ảnh yêu thương 1" class="love-photo" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCIgdmlld0JveD0iMCAwIDEyMCAxMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxMjAiIGhlaWdodD0iMTIwIiBmaWxsPSIjRkZCNkM3Ii8+Cjx0ZXh0IHg9IjYwIiB5PSI2NSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE0IiBmaWxsPSIjRDYzMzg0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj7ijJU8L3RleHQ+Cjwvc3ZnPg=='">
+        <div class="frame-decoration">💕</div>
+      </div>
+      <div class="photo-frame top-right">
+        <img src="src/photo2.jpg" alt="Ảnh yêu thương 2" class="love-photo" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCIgdmlld0JveD0iMCAwIDEyMCAxMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxMjAiIGhlaWdodD0iMTIwIiBmaWxsPSIjRkZCNkM3Ii8+Cjx0ZXh0IHg9IjYwIiB5PSI2NSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE0IiBmaWxsPSIjRDYzMzg0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj7ijKY8L3RleHQ+Cjwvc3ZnPg=='">
+        <div class="frame-decoration">💖</div>
+      </div>
+      <div class="photo-frame bottom-left">
+        <img src="src/photo3.jpg" alt="Ảnh yêu thương 3" class="love-photo" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCIgdmlld0JveD0iMCAwIDEyMCAxMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxMjAiIGhlaWdodD0iMTIwIiBmaWxsPSIjRkZCNkM3Ii8+Cjx0ZXh0IHg9IjYwIiB5PSI2NSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE0IiBmaWxsPSIjRDYzMzg0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj7ijJc8L3RleHQ+Cjwvc3ZnPg=='">
+        <div class="frame-decoration">💗</div>
+      </div>
+      <div class="photo-frame bottom-right">
+        <img src="src/photo4.jpg" alt="Ảnh yêu thương 4" class="love-photo" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCIgdmlld0JveD0iMCAwIDEyMCAxMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxMjAiIGhlaWdodD0iMTIwIiBmaWxsPSIjRkZCNkM3Ci8+Cjx0ZXh0IHg9IjYwIiB5PSI2NSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE0IiBmaWxsPSIjRDYzMzg0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj7ijJg8L3RleHQ+Cjwvc3ZnPg=='">
+        <div class="frame-decoration">💝</div>
+      </div>
+      <div class="photo-frame left-center">
+        <img src="src/photo5.jpg" alt="Ảnh yêu thương 5" class="love-photo" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCIgdmlld0JveD0iMCAwIDEyMCAxMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxMjAiIGhlaWdodD0iMTIwIiBmaWxsPSIjRkZCNkM3Ci8+Cjx0ZXh0IHg9IjYwIiB5PSI2NSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE0IiBmaWxsPSIjRDYzMzg0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj7ijJk8L3RleHQ+Cjwvc3ZnPg=='">
+        <div class="frame-decoration">💘</div>
+      </div>
+      <div class="photo-frame right-center">
+        <img src="src/photo6.jpg" alt="Ảnh yêu thương 6" class="love-photo" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCIgdmlld0JveD0iMCAwIDEyMCAxMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxMjAiIGhlaWdodD0iMTIwIiBmaWxsPSIjRkZCNkM3Ci8+Cjx0ZXh0IHg9IjYwIiB5PSI2NSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE0IiBmaWxsPSIjRDYzMzg0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj7ijJo8L3RleHQ+Cjwvc3ZnPg=='">
+        <div class="frame-decoration">💞</div>
+      </div>
+    </div>
+    
+    <div class="card">
+      <div class="card-header" id="cardHeader" style="display:none;">
+        <span class="header-emoji">💝</span>
+        <span class="header-text">Thông điệp yêu thương cho Mei</span>
+        <span class="header-emoji">💝</span>
+      </div>
+      <img src="src/cute.gif" alt="Cute gif" class="gif" />
+      <p id="loveMsg"></p>
+    </div>
+  </div>
+  
+  <audio id="bgMusic" src="src/phoncert.mp4" loop></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>

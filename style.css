@@ -1,0 +1,885 @@
+body {
+  font-family: 'Nunito', 'Quicksand', 'Poppins', 'Segoe UI', Arial, sans-serif;
+  text-align: center;
+  background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+  background-attachment: fixed;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Photo frames styling */
+.photo-frames {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.photo-frame {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 20px;
+  border: 4px solid rgba(255, 182, 193, 0.8);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(255, 240, 245, 0.9));
+  box-shadow: 0 8px 25px rgba(255, 105, 180, 0.4);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+  opacity: 0;
+  transform: scale(0) rotate(180deg);
+  transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.photo-frame.show {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+
+.love-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.frame-decoration {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(255, 182, 193, 0.6);
+  animation: heartPulse 2s ease-in-out infinite;
+}
+
+@keyframes heartPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+/* Position các khung ảnh */
+.photo-frame.top-left {
+  top: 50px;
+  left: 50px;
+  animation-delay: 0.2s;
+}
+
+.photo-frame.top-right {
+  top: 50px;
+  right: 50px;
+  animation-delay: 0.4s;
+}
+
+.photo-frame.bottom-left {
+  bottom: 50px;
+  left: 50px;
+  animation-delay: 0.6s;
+}
+
+.photo-frame.bottom-right {
+  bottom: 50px;
+  right: 50px;
+  animation-delay: 0.8s;
+}
+
+.photo-frame.left-center {
+  top: 50%;
+  left: 30px;
+  transform: translateY(-50%) scale(0) rotate(180deg);
+  animation-delay: 1s;
+}
+
+.photo-frame.left-center.show {
+  transform: translateY(-50%) scale(1) rotate(0deg);
+}
+
+.photo-frame.right-center {
+  top: 50%;
+  right: 30px;
+  transform: translateY(-50%) scale(0) rotate(180deg);
+  animation-delay: 1.2s;
+}
+
+.photo-frame.right-center.show {
+  transform: translateY(-50%) scale(1) rotate(0deg);
+}
+
+/* Floating hearts animation */
+.floating-hearts {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.floating-hearts .heart {
+  position: absolute;
+  font-size: 20px;
+  animation: floatHearts 8s linear infinite;
+  opacity: 0.7;
+}
+
+.floating-hearts .heart:nth-child(1) {
+  left: 10%;
+  animation-delay: 0s;
+  animation-duration: 8s;
+}
+
+.floating-hearts .heart:nth-child(2) {
+  left: 30%;
+  animation-delay: 2s;
+  animation-duration: 10s;
+}
+
+.floating-hearts .heart:nth-child(3) {
+  left: 50%;
+  animation-delay: 4s;
+  animation-duration: 9s;
+}
+
+.floating-hearts .heart:nth-child(4) {
+  left: 70%;
+  animation-delay: 1s;
+  animation-duration: 11s;
+}
+
+.floating-hearts .heart:nth-child(5) {
+  left: 90%;
+  animation-delay: 3s;
+  animation-duration: 7s;
+}
+
+@keyframes floatHearts {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.7;
+  }
+  90% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-100px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Stage decorations */
+.stage-decoration {
+  margin-bottom: 20px;
+}
+
+.deco-emoji {
+  font-size: 30px;
+  margin: 0 15px;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.deco-emoji:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.deco-emoji:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.cute-message, .instruction-text {
+  margin-top: 20px;
+  color: #d63384;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.twinkle {
+  animation: twinkleEffect 1.5s ease-in-out infinite;
+}
+
+@keyframes twinkleEffect {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.2); }
+}
+
+.card-header {
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: #d63384;
+  font-weight: bold;
+}
+
+.header-emoji {
+  font-size: 24px;
+  margin: 0 10px;
+  animation: crown 2s ease-in-out infinite;
+}
+
+@keyframes crown {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-10deg); }
+  75% { transform: rotate(10deg); }
+}
+
+/* Thêm hiệu ứng hạt rơi cute */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, rgba(255, 182, 193, 0.4), transparent),
+    radial-gradient(2px 2px at 40px 70px, rgba(255, 192, 203, 0.4), transparent),
+    radial-gradient(1px 1px at 90px 40px, rgba(255, 182, 193, 0.4), transparent),
+    radial-gradient(1px 1px at 130px 80px, rgba(255, 192, 203, 0.4), transparent),
+    radial-gradient(2px 2px at 160px 30px, rgba(255, 182, 193, 0.4), transparent);
+  background-repeat: repeat;
+  background-size: 200px 100px;
+  animation: sparkles 20s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes sparkles {
+  from { transform: translateY(-100px); }
+  to { transform: translateY(calc(100vh + 100px)); }
+}
+
+/* Initial stage visibility */
+#startStage {
+  display: block;
+}
+
+#inputStage, #loveStage, #cardStage {
+  display: none;
+}
+
+#startStage {
+  position: relative;
+  z-index: 10;
+  margin-top: 80px;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 30px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(255, 105, 180, 0.3);
+  max-width: 400px;
+  margin: 80px auto;
+  border: 2px solid rgba(255, 182, 193, 0.5);
+}
+
+#startStage p {
+  color: #d63384;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 20px;
+  text-shadow: 1px 1px 2px rgba(255, 182, 193, 0.5);
+}
+
+.gift-image {
+  width: 180px;
+  height: auto;
+  cursor: pointer;
+  animation: bounce 2s infinite, glow 3s ease-in-out infinite alternate;
+  filter: drop-shadow(0 5px 15px rgba(255, 105, 180, 0.4));
+  transition: transform 0.3s ease;
+}
+
+.gift-image:hover {
+  transform: scale(1.05) rotate(5deg);
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-20px); }
+  60% { transform: translateY(-10px); }
+}
+
+@keyframes glow {
+  from { filter: drop-shadow(0 5px 15px rgba(255, 105, 180, 0.4)); }
+  to { filter: drop-shadow(0 5px 25px rgba(255, 105, 180, 0.8)); }
+}
+
+.card {
+  position: relative;
+  z-index: 10;
+  margin: 50px auto;
+  padding: 30px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(255, 240, 245, 0.95));
+  border-radius: 25px;
+  display: inline-block;
+  box-shadow: 
+    0 8px 32px rgba(255, 105, 180, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  max-width: 600px;
+  overflow: visible;
+  min-height: 350px;
+  border: 3px solid rgba(255, 182, 193, 0.6);
+  backdrop-filter: blur(10px);
+  animation: cardAppear 1s ease-out;
+}
+
+@keyframes cardAppear {
+  from { 
+    opacity: 0; 
+    transform: translateY(50px) scale(0.9); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0) scale(1); 
+  }
+}
+
+.card::before {
+  content: '💖';
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 30px;
+  animation: heartBeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartBeat {
+  0%, 100% { transform: translateX(-50%) scale(1); }
+  50% { transform: translateX(-50%) scale(1.2); }
+}
+
+.gif {
+  width: 220px;
+  border-radius: 20px;
+  margin-bottom: 25px;
+  border: 4px solid rgba(255, 182, 193, 0.7);
+  box-shadow: 0 5px 20px rgba(255, 105, 180, 0.4);
+  animation: gifFloat 3s ease-in-out infinite;
+}
+
+@keyframes gifFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+#loveMsg {
+  font-size: 18px;
+  color: #d63384;
+  line-height: 1.6;
+  white-space: pre-line;
+  background: linear-gradient(135deg, #ff6b9d, #c44569);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(255, 105, 180, 0.3);
+}
+
+#fromTag {
+  display: block !important;
+  opacity: 1 !important;
+  background: linear-gradient(135deg, #ff6b9d, #c44569);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 1.3em;
+  font-weight: bold;
+  margin-top: 25px;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+  transition: opacity 1s ease;
+  text-shadow: 0 2px 4px rgba(255, 105, 180, 0.3);
+}
+
+/* Style cho loveStage */
+#loveStage {
+  position: relative;
+  z-index: 10;
+  margin: 60px auto;
+  padding: 40px;
+  display: none;
+  transition: opacity 1s ease;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 30px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(255, 105, 180, 0.3);
+  max-width: 500px;
+  border: 2px solid rgba(255, 182, 193, 0.5);
+}
+
+#loveStage::before {
+  content: '✨💕✨';
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 24px;
+  animation: sparkleRotate 2s linear infinite;
+}
+
+@keyframes sparkleRotate {
+  from { transform: translateX(-50%) rotate(0deg); }
+  to { transform: translateX(-50%) rotate(360deg); }
+}
+
+#loveStage.hidden {
+  opacity: 0;
+}
+
+#lovePrompt {
+  font-size: 22px;
+  background: linear-gradient(135deg, #ff6b9d, #c44569);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 30px;
+  font-weight: bold;
+  text-shadow: 0 2px 4px rgba(255, 105, 180, 0.3);
+  animation: textGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes textGlow {
+  from { filter: drop-shadow(0 0 5px rgba(255, 105, 180, 0.5)); }
+  to { filter: drop-shadow(0 0 15px rgba(255, 105, 180, 0.8)); }
+}
+
+#loveIcons {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.love-icon {
+  font-size: 50px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  filter: drop-shadow(0 4px 8px rgba(255, 105, 180, 0.4));
+  position: relative;
+}
+
+.love-icon:hover {
+  transform: scale(1.1) rotate(10deg);
+  filter: drop-shadow(0 6px 12px rgba(255, 105, 180, 0.6));
+}
+
+.love-icon.tapped {
+  opacity: 0.8;
+  transform: scale(1.3) rotate(15deg);
+  animation: loveSparkle 0.8s ease;
+  filter: drop-shadow(0 8px 16px rgba(255, 105, 180, 0.8));
+}
+
+.love-icon.tapped::after {
+  content: '✨';
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: 20px;
+  animation: sparkleAppear 0.6s ease;
+}
+
+@keyframes loveSparkle {
+  0% { transform: scale(1.3) rotate(15deg); }
+  25% { transform: scale(1.5) rotate(-5deg); }
+  50% { 
+    transform: scale(1.4) rotate(10deg); 
+    text-shadow: 
+      0 0 10px #ff4081, 
+      0 0 20px #ff4081, 
+      0 0 30px #ff69b4;
+  }
+  75% { transform: scale(1.35) rotate(-5deg); }
+  100% { transform: scale(1.3) rotate(15deg); }
+}
+
+@keyframes sparkleAppear {
+  0% { opacity: 0; transform: scale(0) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1.2) rotate(180deg); }
+  100% { opacity: 0; transform: scale(0) rotate(360deg); }
+}
+
+/* Custom SweetAlert styling */
+.swal-cute-popup {
+  border-radius: 25px !important;
+  border: 3px solid rgba(255, 182, 193, 0.6) !important;
+}
+
+.swal-cute-button {
+  background: linear-gradient(135deg, #ff6b9d, #c44569) !important;
+  border: none !important;
+  border-radius: 20px !important;
+  color: white !important;
+  font-weight: bold !important;
+  padding: 12px 24px !important;
+  box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4) !important;
+  transition: all 0.3s ease !important;
+}
+
+.swal-cute-button:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(255, 105, 180, 0.6) !important;
+}
+
+.swal-cute-input {
+  border: 2px solid rgba(255, 182, 193, 0.6) !important;
+  border-radius: 15px !important;
+  padding: 12px !important;
+  font-family: 'Comic Neue', sans-serif !important;
+  color: #d63384 !important;
+  background: rgba(255, 255, 255, 0.9) !important;
+}
+
+.swal-cute-input:focus {
+  border-color: #ff6b9d !important;
+  box-shadow: 0 0 0 3px rgba(255, 107, 157, 0.2) !important;
+  outline: none !important;
+}
+
+/* Welcome Header */
+.welcome-header {
+  margin-bottom: 30px;
+  animation: fadeInDown 1.5s ease-out;
+}
+
+.main-title {
+  font-size: clamp(24px, 5vw, 36px);
+  color: #d63384;
+  margin: 0 0 10px 0;
+  text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.3);
+  animation: titleGlow 3s ease-in-out infinite;
+}
+
+.subtitle {
+  font-size: clamp(14px, 3vw, 18px);
+  color: #b8336a;
+  opacity: 0.9;
+  font-style: italic;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes titleGlow {
+  0%, 100% { text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.3); }
+  50% { text-shadow: 2px 2px 8px rgba(255, 105, 180, 0.6), 0 0 20px rgba(255, 105, 180, 0.4); }
+}
+
+/* Corner Decorations */
+.corner-decorations {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.corner-deco {
+  position: absolute;
+  font-size: 30px;
+  animation: gentleFloat 4s ease-in-out infinite;
+}
+
+.corner-deco.top-left {
+  top: 20px;
+  left: 20px;
+  animation-delay: 0s;
+}
+
+.corner-deco.top-right {
+  top: 20px;
+  right: 20px;
+  animation-delay: 1s;
+}
+
+.corner-deco.bottom-left {
+  bottom: 20px;
+  left: 20px;
+  animation-delay: 2s;
+}
+
+.corner-deco.bottom-right {
+  bottom: 20px;
+  right: 20px;
+  animation-delay: 3s;
+}
+
+@keyframes gentleFloat {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(5deg); }
+}
+
+/* Floating Decorations */
+.floating-decorations {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.float-item {
+  position: absolute;
+  font-size: 20px;
+  animation: floatAround 6s ease-in-out infinite;
+}
+
+.float-item.item-1 { top: 15%; left: 15%; animation-delay: 0s; }
+.float-item.item-2 { top: 25%; right: 20%; animation-delay: 1s; }
+.float-item.item-3 { top: 45%; left: 10%; animation-delay: 2s; }
+.float-item.item-4 { top: 60%; right: 15%; animation-delay: 3s; }
+.float-item.item-5 { bottom: 25%; left: 25%; animation-delay: 4s; }
+.float-item.item-6 { bottom: 15%; right: 25%; animation-delay: 5s; }
+
+@keyframes floatAround {
+  0%, 100% { transform: translateY(0px) scale(1); opacity: 0.7; }
+  33% { transform: translateY(-15px) scale(1.1); opacity: 1; }
+  66% { transform: translateY(-5px) scale(0.9); opacity: 0.8; }
+}
+
+/* Gift Wrapper */
+.gift-wrapper {
+  position: relative;
+  display: inline-block;
+  margin: 20px 0;
+  z-index: 10; /* Đảm bảo gift wrapper ở trên */
+}
+
+.gift-image {
+  position: relative;
+  z-index: 15; /* Đảm bảo gift image ở trên cùng */
+  cursor: pointer;
+  pointer-events: auto !important;
+  /* Existing gift-image styles */
+  max-width: 150px;
+  height: auto;
+  animation: bounce 2s infinite;
+  transition: transform 0.3s ease;
+}
+
+.gift-image:hover {
+  transform: scale(1.1);
+  animation: glow 1.5s infinite;
+}
+
+.gift-decorations {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none !important; /* Không thể click vào decorations */
+}
+
+.gift-sparkle {
+  position: absolute;
+  font-size: 20px;
+  animation: sparkleOrbit 4s linear infinite;
+  pointer-events: none !important;
+}
+
+.gift-glow-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  border: 3px solid rgba(255, 105, 180, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: glowRing 3s ease-in-out infinite;
+  pointer-events: none !important; /* Không thể click vào glow ring */
+}
+
+/* Đảm bảo startStage có thể tương tác */
+#startStage {
+  position: relative;
+  z-index: 5;
+  pointer-events: auto;
+}
+
+/* Đảm bảo tất cả text và button có thể tương tác */
+.main-message,
+.cute-message,
+.music-note,
+.bottom-decorations {
+  pointer-events: auto;
+  position: relative;
+  z-index: 8;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  #startStage, #loveStage {
+    margin: 40px 20px;
+    padding: 30px 20px;
+  }
+  
+  .gift-image {
+    width: 150px;
+  }
+  
+  .card {
+    margin: 30px 20px;
+    padding: 25px 20px;
+    max-width: calc(100% - 40px);
+  }
+  
+  .gif {
+    width: 180px;
+  }
+  
+  #loveIcons {
+    gap: 15px;
+  }
+  
+  .love-icon {
+    font-size: 45px;
+  }
+  
+  #loveMsg {
+    font-size: 16px;
+  }
+  
+  .deco-emoji {
+    font-size: 25px;
+    margin: 0 10px;
+  }
+  
+  .floating-hearts .heart {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  #startStage, #loveStage {
+    margin: 20px 15px;
+    padding: 25px 15px;
+  }
+  
+  .gift-image {
+    width: 120px;
+  }
+  
+  .card {
+    margin: 20px 15px;
+    padding: 20px 15px;
+  }
+  
+  .gif {
+    width: 150px;
+  }
+  
+  #loveIcons {
+    gap: 10px;
+  }
+  
+  .love-icon {
+    font-size: 40px;
+  }
+  
+  #loveMsg {
+    font-size: 15px;
+  }
+  
+  #lovePrompt {
+    font-size: 18px;
+  }
+}
+
+/* Card Stage */
+#cardStage {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: none;
+}
+
+/* Photo frames responsive updates for mobile */
+@media (max-width: 768px) {
+  .photo-frame {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .photo-frame.top-left,
+  .photo-frame.top-right {
+    top: 15px;
+  }
+  
+  .photo-frame.top-left,
+  .photo-frame.bottom-left,
+  .photo-frame.left-center {
+    left: 15px;
+  }
+  
+  .photo-frame.top-right,
+  .photo-frame.bottom-right,
+  .photo-frame.right-center {
+    right: 15px;
+  }
+  
+  .photo-frame.bottom-left,
+  .photo-frame.bottom-right {
+    bottom: 60px;
+  }
+  
+  .photo-frame.left-center {
+    top: 35%;
+  }
+  
+  .photo-frame.right-center {
+    top: 35%;
+  }
+  
+  .frame-decoration {
+    font-size: 16px;
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .photo-frame {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .photo-frame.left-center,
+  .photo-frame.right-center {
+    top: 30%;
+  }
+  
+  .frame-decoration {
+    font-size: 14px;
+    width: 20px;
+    height: 20px;
+  }
+}
